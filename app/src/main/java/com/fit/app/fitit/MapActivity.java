@@ -3,9 +3,8 @@ package com.fit.app.fitit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,17 +12,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.view.View;
 
-public class MainActivity extends AppCompatActivity
+/**
+ * Created by Kev on 18/5/18.
+ */
+
+public class MapActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_map);
+
         //find and set toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_map);
         setSupportActionBar(toolbar);
         //find and set fab button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -43,17 +46,8 @@ public class MainActivity extends AppCompatActivity
         //find and set nav view
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        //find and set buttons
-        Button stepsActivityBtn = (Button)findViewById(R.id.stepsActivity_btn);
-        stepsActivityBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent startIntent = new Intent(getApplicationContext(), StepsActivity.class);
-                startActivity(startIntent);
-            }
-        });
     }
+
 
     @Override
     public void onBackPressed() {
@@ -104,6 +98,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_map) {
             Intent startIntent = new Intent(getApplicationContext(), MapActivity.class);
             startActivity(startIntent);
+
 
         } else if (id == R.id.nav_manage) {
 
