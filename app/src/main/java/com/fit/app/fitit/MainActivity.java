@@ -104,8 +104,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_map) {
             Intent startIntent = new Intent(getApplicationContext(), MapActivity.class);
             startActivity(startIntent);
+            //ffsdfaadsffdsa git
 
         } else if (id == R.id.nav_manage) {
+            Intent startIntent = new Intent(getApplicationContext(), MapActivity.class);
+            startActivity(startIntent);
 
         } else if (id == R.id.nav_share) {
 
