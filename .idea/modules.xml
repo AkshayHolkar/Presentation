@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FitIT.iml" filepath="$PROJECT_DIR$/FitIT.iml" />
-      <module fileurl="file://C:\Users\niaco\Steps\FitITWorking\FitIT.iml" filepath="C:\Users\niaco\Steps\FitITWorking\FitIT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../niaco/Steps/FitITWorking/FitIT.iml" filepath="$PROJECT_DIR$/../../../niaco/Steps/FitITWorking/FitIT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FitITFINAL3.iml" filepath="$PROJECT_DIR$/FitITFINAL3.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/FitITWorking.iml" filepath="$PROJECT_DIR$/.idea/FitITWorking.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\niaco\Steps\FitITWorking\app\app.iml" filepath="C:\Users\niaco\Steps\FitITWorking\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../niaco/Steps/FitITWorking/app/app.iml" filepath="$PROJECT_DIR$/../../../niaco/Steps/FitITWorking/app/app.iml" />
     </modules>
   </component>
 </project>
