@@ -159,7 +159,7 @@ public class StepsActivity extends AppCompatActivity
     public void onSensorChanged(SensorEvent event) {
         if(running){
             float x = (float) Math.round(event.values[0] * 100) / 100;
-            tv_steps.setText(String.valueOf(event.values[0]));
+            tv_steps.setText(String.valueOf(x));
         }
     }
     @Override
