@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_dashboard) {
-            // Handle the camera action
+            // Handle the dashboard action
             Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(startIntent);
         } else if (id == R.id.nav_steps) {
@@ -104,11 +104,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_map) {
             Intent startIntent = new Intent(getApplicationContext(), MapActivity.class);
             startActivity(startIntent);
-            //ffsdfaadsffdsa git
+
 
         } else if (id == R.id.nav_manage) {
-            Intent startIntent = new Intent(getApplicationContext(), MapActivity.class);
-            startActivity(startIntent);
 
         } else if (id == R.id.nav_share) {
 
