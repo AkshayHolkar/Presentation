@@ -48,6 +48,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+
 import static android.util.Log.e;
 
 
@@ -90,6 +92,18 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     private static final String KEY_LOCATION = "location";
 
     static final LatLng UTS = new LatLng(-33.883997, 151.199156);
+
+    static final LatLng UTSRouteRelaxed1 = new LatLng(-33.884037, 151.199840);
+    static final LatLng UTSRouteShort1 =  new LatLng(-33.884211, 151.199368);
+    static final LatLng UTSRouteLong1 =  new LatLng(-33.884178, 151.198623);
+    static final LatLng UTSRouteLong2 =   new LatLng(-33.884207, 151.198241);
+
+    static final LatLng GooglePlexShort1 =   new LatLng(37.421973, -122.084107);
+
+    static final LatLng GooglePlexLong1 =  new LatLng(37.422031, -122.083936);
+    static final LatLng GooglePlexRelaxed1 =     new LatLng(37.421958, -122.083914);
+
+
 
 
     private static final int COLOR_BLACK_ARGB = 0xff000000;
@@ -255,6 +269,62 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
                 .title("University of Technology Sydney")
                 .snippet("Building 11"));
 
+        mMap.addMarker(new MarkerOptions()
+                .position(UTSRouteRelaxed1)
+                .draggable(true)
+                .title("Distance: ")
+                .snippet("Time to Complete: 8 minutes ")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
+
+        mMap.addMarker(new MarkerOptions()
+                .position(UTSRouteShort1)
+                .draggable(true)
+                .title("Distance: ")
+                .snippet("Time to Complete: 10 minutes ")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+
+        mMap.addMarker(new MarkerOptions()
+                .position(UTSRouteLong1)
+                .draggable(true)
+                .title("Distance: ")
+                .snippet("Time to Complete: 20 minutes ")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
+          mMap.addMarker(new MarkerOptions()
+                .position(UTSRouteLong2)
+                .draggable(true)
+                .title("Distance: ")
+                .snippet("Time to Complete: 10 minutes ")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
+            mMap.addMarker(new MarkerOptions()
+                .position(GooglePlexShort1)
+                .draggable(true)
+                .title("Distance: ")
+                .snippet("Time to Complete: 10 minutes ")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE))
+                .alpha(0.7f));
+
+
+              mMap.addMarker(new MarkerOptions()
+                .position(GooglePlexRelaxed1)
+                .draggable(true)
+                .title("Distance: ")
+                .snippet("Time to Complete: 15 minutes ")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                .alpha(0.7f));
+
+
+              mMap.addMarker(new MarkerOptions()
+                .position(GooglePlexLong1)
+                .draggable(true)
+                .title("Distance: ")
+                .snippet("Time to Complete: 20 minutes ")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                .alpha(0.7f));
+
+              
 
         getLocationPermission();
         // Turn on the My Location layer and the related control on the map.
@@ -337,17 +407,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
                         new LatLng(37.422266, -122.082622),
                         new LatLng(37.422331, -122.082508),
                         new LatLng(37.422492, -122.082123),
-                        new LatLng(37.422605, -122.081690)
+                        new LatLng(37.422605, -122.081690)));
 
 
-
-
-
-                        //   new LatLng(37.422604, -122.081692)
-
-
-
-                ));
 
         polyline3.setTag("Relaxed Run");
         stylePolyline(polyline3);
@@ -735,6 +797,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     public void onMapClick(LatLng latLng) {
         MarkerOptions marker = new MarkerOptions();
         marker.position(latLng);
+        marker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
         mMap.addMarker(marker);
 
         polylineOptions = new PolylineOptions();
@@ -764,8 +827,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         double lng = Double.parseDouble(coordinates[1]);
 
         LatLng position = new LatLng(lat, lng);
-        //GooglePlayServicesUtil.isGooglePlayServicesAvailable(
-        //      MapsActivity.this);
+        com.google.android.gms.common.GooglePlayServicesUtil.isGooglePlayServicesAvailable(
+            MapActivity.this);
 
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 15));
