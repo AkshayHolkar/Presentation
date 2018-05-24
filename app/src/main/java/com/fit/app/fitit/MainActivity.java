@@ -53,6 +53,16 @@ public class MainActivity extends AppCompatActivity
                 startActivity(startIntent);
             }
         });
+        Button mapActivity_btn = (Button)findViewById(R.id.mapActivity_btn);
+        mapActivity_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getApplicationContext(), MapActivity.class);
+                startActivity(startIntent);
+            }
+        });
+
+
     }
 
     @Override
@@ -94,7 +104,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_dashboard) {
-            // Handle the camera action
+            // Handle the dashboard action
             Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(startIntent);
         } else if (id == R.id.nav_steps) {
@@ -104,6 +114,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_map) {
             Intent startIntent = new Intent(getApplicationContext(), MapActivity.class);
             startActivity(startIntent);
+
 
         } else if (id == R.id.nav_manage) {
 

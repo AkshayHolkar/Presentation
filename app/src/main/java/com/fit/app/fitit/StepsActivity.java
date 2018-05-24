@@ -1,5 +1,6 @@
 package com.fit.app.fitit;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,13 +14,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Kev on 14/5/18.
  */
 
 public class StepsActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener, SensorEventListener  {
+
+    TextView tv_steps;
+
+    SensorManager sensorManager;
+    boolean running = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,15 +41,25 @@ public class StepsActivity extends AppCompatActivity
         //find and set toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_steps);
         setSupportActionBar(toolbar);
-        //find and set fab button
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+        tv_steps = (TextView) findViewById(R.id.tv_steps);
+
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
+
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
+//        //find and set fab button
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
         //find and set nav drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -110,6 +133,37 @@ public class StepsActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return true;
+        return true; //yayeet
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        running = true;
+        Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+        if(countSensor != null){
+            sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_UI);
+        }
+        else {
+            Toast.makeText(this, "Sensor not found", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        running = false;
+        // sensorManager.unregisterListener();
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if(running){
+            float x = (float) Math.round(event.values[0] * 100) / 100;
+            tv_steps.setText(String.valueOf(x));
+        }
+    }
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
     }
 }
