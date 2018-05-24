@@ -9,16 +9,19 @@
 
     <!--titles-->
     <string name="title_activity_map">Map</string>
+    <string name="title_activity_fat">Progress</string>
 
 
     <!--buttons-->
-    <string name="launchSteps_btn">0/10000 Steps</string>
-    <string name="launchMap_btn">Map</string>
-    <string name="launchFat_btn">Calories Expanded</string>
+    <string name="activity_steps_btn_launch">0/10000 Steps</string>
+    <string name="activity_map_btn_launch">Map</string>
+    <string name="activity_fat_btn_launch">500/1000 Calories</string>
 
 
+    <!--nav-->
+    <string name="nav_header_text">Stop being fat you cunt</string>
 
-    launchFat_btn
+
 
 
 </resources>
