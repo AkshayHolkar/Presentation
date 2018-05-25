@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".MainActivity"
+            android:name=".GoogleSignInActivity"
             android:label="@string/app_name"
             android:theme="@style/splashScreenTheme">
 
@@ -26,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+         <activity android:name=".MainActivity" />
         <activity android:name=".StepsActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
