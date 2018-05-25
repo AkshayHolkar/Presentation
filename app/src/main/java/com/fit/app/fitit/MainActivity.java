@@ -28,6 +28,16 @@ public class MainActivity extends AppCompatActivity
         //find and set toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
+          //set user name
+        TextView mStatusTextView;
+        mStatusTextView = findViewById(R.id.status);
+            // [START declare_auth]
+              FirebaseAuth mAuth;
+             // [START initialize_auth]
+             mAuth = FirebaseAuth.getInstance();
+             FirebaseUser user = mAuth.getCurrentUser();
+             String status="Your email address is ";
+             mStatusTextView.setText(status+getString(R.string.google_status_fmt, user.getEmail()));
         //find and set fab button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
