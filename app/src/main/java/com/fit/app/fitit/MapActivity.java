@@ -34,6 +34,7 @@ import com.google.android.gms.maps.model.Dot;
 import com.google.android.gms.maps.model.Gap;
 import com.google.android.gms.maps.model.JointType;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PatternItem;
 import com.google.android.gms.maps.model.Polygon;
@@ -56,15 +57,8 @@ import static android.util.Log.e;
 
 
 
-
-
-
-
-
-
-
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback,NavigationView.OnNavigationItemSelectedListener,GoogleMap.OnPolylineClickListener,
-        GoogleMap.OnPolygonClickListener, GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener   {
+        GoogleMap.OnPolygonClickListener, GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnInfoWindowLongClickListener {
 
     private GoogleMap mMap;
 
@@ -135,8 +129,14 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
 
 
+
+
     private PolylineOptions polylineOptions;
+
     private ArrayList<LatLng> arrayPoints;
+
+    private int countClicks;
+    private Marker mGooglePlex;
 
 
 
@@ -262,69 +262,76 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     public void onMapReady(GoogleMap map) {
         mMap = map;
 
+
+        mMap.setOnInfoWindowClickListener(this);
+        mMap.setOnInfoWindowLongClickListener(this);
+
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.addMarker(new MarkerOptions()
                 .position(UTS)
-                .draggable(true)
+                .draggable(false)
                 .title("University of Technology Sydney")
                 .snippet("Building 11"));
 
         mMap.addMarker(new MarkerOptions()
                 .position(UTSRouteRelaxed1)
-                .draggable(true)
-                .title("Distance: ")
-                .snippet("Time to Complete: 8 minutes ")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                .draggable(false)
+                .title("Distance: 500m x 4")
+                .snippet("Time to Complete: 13 minutes ")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                .alpha(0.7f));
 
 
         mMap.addMarker(new MarkerOptions()
                 .position(UTSRouteShort1)
-                .draggable(true)
-                .title("Distance: ")
-                .snippet("Time to Complete: 10 minutes ")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+                .draggable(false)
+                .title("Distance: 275m x 4")
+                .snippet("Time to Complete: 7 minutes ")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE))
+                .alpha(0.7f));
 
         mMap.addMarker(new MarkerOptions()
                 .position(UTSRouteLong1)
-                .draggable(true)
-                .title("Distance: ")
-                .snippet("Time to Complete: 20 minutes ")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+                .draggable(false)
+                .title("Distance: 350m x 4 ")
+                .snippet("Time to Complete: 7 minutes ")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                .alpha(0.7f));
 
           mMap.addMarker(new MarkerOptions()
                 .position(UTSRouteLong2)
-                .draggable(true)
-                .title("Distance: ")
+                .draggable(false)
+                .title("Distance: 350m x 4 ")
                 .snippet("Time to Complete: 10 minutes ")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                .alpha(0.7f));
 
-            mMap.addMarker(new MarkerOptions()
+             mMap.addMarker(new MarkerOptions()
                 .position(GooglePlexShort1)
-                .draggable(true)
-                .title("Distance: ")
-                .snippet("Time to Complete: 10 minutes ")
+                .draggable(false)
+                .title("Distance: 120m x 6")
+                .snippet("Time to Complete: 5 minutes ")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE))
                 .alpha(0.7f));
 
 
               mMap.addMarker(new MarkerOptions()
                 .position(GooglePlexRelaxed1)
-                .draggable(true)
-                .title("Distance: ")
-                .snippet("Time to Complete: 15 minutes ")
+                .draggable(false)
+                .title("Distance: 350m x 4")
+                .snippet("Time to Complete: 9 minutes ")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                 .alpha(0.7f));
 
 
               mMap.addMarker(new MarkerOptions()
                 .position(GooglePlexLong1)
-                .draggable(true)
-                .title("Distance: ")
-                .snippet("Time to Complete: 20 minutes ")
+                .draggable(false)
+                .title("Distance: 450m x 4")
+                .snippet("Time to Complete: 10 minutes ")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
                 .alpha(0.7f));
 
-              
 
         getLocationPermission();
         // Turn on the My Location layer and the related control on the map.
@@ -360,7 +367,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
                         new LatLng(-33.881453, 151.198443),
 
                         new LatLng(-33.881053, 151.198735),
-                        new LatLng(-33.880620, 151.199088)));
+                        new LatLng(-33.880620, 151.199088),
+                        new LatLng(-33.875347, 151.195973)
+
+
+                ));
 
 
 
@@ -448,7 +459,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
                 ));
 
 
-        polyline4.setTag("Long Run");
+        polyline4.setTag("Intense Run");
         stylePolyline(polyline4);
 
         Polyline polyline5 = mMap.addPolyline(new PolylineOptions()
@@ -495,7 +506,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
                         new LatLng(-33.879438, 151.194541)
                 ));
 
-        polyline6.setTag("Long Run");
+        polyline6.setTag("Intense Run");
         stylePolyline(polyline6);
 
 
@@ -642,11 +653,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
 
 
-
-
-
-
-
     /**
      * Prompts the user for permission to use the device location.
      */
@@ -765,7 +771,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
                 break;
 
-            case "Long Run":
+            case "Intense Run":
                 polyline.setStartCap(new RoundCap());
                 polyline.setEndCap(new SquareCap());
                 polyline.setWidth(POLYLINE_STROKE_WIDTH_PX);
@@ -882,8 +888,24 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     }
 
 
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+
+        countClicks++;
+
+        Toast.makeText(this, "Laps: " + countClicks,
+                Toast.LENGTH_SHORT).show();
 
 
+    }
+
+    @Override
+    public void onInfoWindowLongClick(Marker marker) {
+
+        countClicks = 0;
+        Toast.makeText(this, "Laps Cleared",
+                Toast.LENGTH_SHORT).show();
+    }
 }
 
 

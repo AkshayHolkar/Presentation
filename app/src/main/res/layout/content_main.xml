@@ -87,7 +87,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/activity_map_btn_launch"
             android:backgroundTint="#ffffff"
-            android:text="Stop Eating Cunt"
+            android:text="Diet"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.944"
