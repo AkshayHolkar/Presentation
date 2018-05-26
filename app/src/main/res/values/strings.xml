@@ -6,7 +6,8 @@
 
     <string name="action_settings">Settings</string>
 
-      
+       <string name="title_activity_map">Home</string>
+    <string name="title_activity_fat">Check Fat</string>
 <string name="activity_steps_btn_launch">Steps</string>
     <string name="activity_fat_btn_launch">Fat</string>
     <string name="activity_map_btn_launch">map</string>
