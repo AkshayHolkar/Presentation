@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -26,7 +27,9 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         // don't move this code, make sure its before super.onCreate
         setTheme(R.style.AppTheme_NoActionBar);
+
         super.onCreate(savedInstanceState);
+        FirebaseApp.initializeApp(this);
         setContentView(R.layout.activity_main);
 
         //find and set toolbar
@@ -35,13 +38,13 @@ public class MainActivity extends AppCompatActivity
           //set user name
         TextView mStatusTextView;
         mStatusTextView = findViewById(R.id.status);
-            // [START declare_auth]
-              FirebaseAuth mAuth;
-             // [START initialize_auth]
-             mAuth = FirebaseAuth.getInstance();
-             FirebaseUser user = mAuth.getCurrentUser();
-             String status="Your email address is ";
-             mStatusTextView.setText(status+getString(R.string.google_status_fmt, user.getEmail()));
+        // [START declare_auth]
+        FirebaseAuth mAuth;
+        // [START initialize_auth]
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String status="Your email address is ";
+        mStatusTextView.setText(status+getString(R.string.google_status_fmt, user.getEmail()));
         //find and set fab button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
