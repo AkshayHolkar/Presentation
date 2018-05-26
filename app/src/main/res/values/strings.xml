@@ -11,6 +11,7 @@
     <string name="activity_fat_btn_launch">Fat</string>
     <string name="activity_map_btn_launch">map</string>
     <string name="nav_header_text">Header</string>
+     <string name="default_web_client_id">Client</string>
    
 
     
