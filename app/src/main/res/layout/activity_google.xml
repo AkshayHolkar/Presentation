@@ -37,6 +37,12 @@
             android:layout_height="wrap_content"
             tools:text="Firebase User ID: 123456789abc" />
 
+        <Button
+            android:id="@+id/skip_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text='"skip sign in"' />
+
     </LinearLayout>
 
 
