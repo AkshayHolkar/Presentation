@@ -1,5 +1,7 @@
 package com.fit.app.fitit;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +23,9 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Kev on 14/5/18.
@@ -32,6 +38,7 @@ public class StepsActivity extends AppCompatActivity
 
     SensorManager sensorManager;
     boolean running = false;
+    int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +57,27 @@ public class StepsActivity extends AppCompatActivity
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        Thread t=new Thread(){
+            @Override
+            public void run(){
+                while (!isInterrupted()) {
+                    try {
+                        Thread.sleep(86400000);
+
+                        runOnUiThread(new Runnable() {
+                            public void run() {
+                                count++;
+                                if (count == 1)
+                                    tv_steps.setText("0");
+                            }
+                        });
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        t.start();
 
 //        //find and set fab button
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -146,6 +174,7 @@ public class StepsActivity extends AppCompatActivity
         else {
             Toast.makeText(this, "Sensor not found", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     @Override
@@ -166,4 +195,5 @@ public class StepsActivity extends AppCompatActivity
     public void onAccuracyChanged(Sensor sensor, int i) {
 
     }
+
 }
