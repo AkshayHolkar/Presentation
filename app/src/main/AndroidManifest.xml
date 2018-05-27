@@ -56,6 +56,8 @@
         <activity
             android:name=".FatActivity"
             android:label="@string/title_activity_fat"></activity>
+
+        <receiver android:name=".CaloriesTab1$AlertReceiver"/>
     </application>
 
 </manifest>
