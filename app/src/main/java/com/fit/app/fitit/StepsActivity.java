@@ -150,7 +150,8 @@ public class StepsActivity extends AppCompatActivity
             startActivity(startIntent);
 
         } else if (id == R.id.nav_calories) {
-
+            Intent startIntent = new Intent(getApplicationContext(),CaloriesActivity.class);
+            startActivity(startIntent);
         } else if (id == R.id.nav_video) {
 
         }

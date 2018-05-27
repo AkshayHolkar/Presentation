@@ -49,7 +49,7 @@
             android:name=".MapActivity"
             android:label="@string/title_activity_map" />
         <activity
-            android:name=".FatActivity"
+            android:name=".CaloriesActivity"
             android:label="@string/title_activity_fat" />
 
         <receiver android:name=".CaloriesTab1$AlertReceiver" />

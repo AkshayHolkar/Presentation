@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity
         activity_fat_btn_launch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent startIntent = new Intent(getApplicationContext(), FatActivity.class);
+                Intent startIntent = new Intent(getApplicationContext(), CaloriesActivity.class);
                 startActivity(startIntent);
             }
         });
@@ -151,7 +151,8 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_calories) {
-
+            Intent startIntent = new Intent(getApplicationContext(),CaloriesActivity.class);
+            startActivity(startIntent);
         } else if (id == R.id.nav_video) {
 
         }

@@ -64,48 +64,48 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.45" />
 
-        <Button
-            android:id="@+id/activity_weight_btn_launch"
-            style="@android:style/Widget.Material.Light.Button"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
-            android:layout_alignTop="@+id/activity_map_btn_launch"
-            android:layout_centerHorizontal="true"
-            android:backgroundTint="#ffffff"
-            android:text="Weight Watcher"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.45" />
+        <!--<Button-->
+            <!--android:id="@+id/activity_weight_btn_launch"-->
+            <!--style="@android:style/Widget.Material.Light.Button"-->
+            <!--android:layout_width="125dp"-->
+            <!--android:layout_height="125dp"-->
+            <!--android:layout_alignTop="@+id/activity_map_btn_launch"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:backgroundTint="#ffffff"-->
+            <!--android:text="Weight Watcher"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--app:layout_constraintVertical_bias="0.45" />-->
 
-        <Button
-            android:id="@+id/activity_tips_btn_launch"
-            style="@android:style/Widget.Material.Light.Button"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/activity_map_btn_launch"
-            android:backgroundTint="#ffffff"
-            android:text="Diet"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.944"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.449" />
-        
-        <TextView
-        android:id="@+id/status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <!--<Button-->
+            <!--android:id="@+id/activity_tips_btn_launch"-->
+            <!--style="@android:style/Widget.Material.Light.Button"-->
+            <!--android:layout_width="125dp"-->
+            <!--android:layout_height="125dp"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_alignTop="@+id/activity_map_btn_launch"-->
+            <!--android:backgroundTint="#ffffff"-->
+            <!--android:text="Diet"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintHorizontal_bias="1.944"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--app:layout_constraintVertical_bias="0.449" />-->
+        <!---->
+        <!--<TextView-->
+        <!--android:id="@+id/status"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.591"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.799"  />
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.591"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0.799"  />-->
 
     </RelativeLayout>
 
