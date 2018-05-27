@@ -1,14 +1,21 @@
 package com.fit.app.fitit;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class SettingsActivity extends AppCompatActivity {
-
+    private SharedPreferences mPreferences;
+    private SharedPreferences.Editor mEditor;
+    private EditText stepGoals, calorieGoals;
+    private Button saveBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,5 +48,34 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             }
         });
+
+        saveBtn = (Button)findViewById(R.id.saveBtn);
+        stepGoals = (EditText) findViewById(R.id.stepGoalsTextEdit);
+        calorieGoals = (EditText) findViewById(R.id.calorieTextEdit);
+
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        //mPreferences = getSharedPreferences("myDataBase", Context.MODE_PRIVATE);
+        mEditor = mPreferences.edit();
+
+        checkSharedPreferences();
+
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String steps = stepGoals.getText().toString();
+                mEditor.putString(getString(R.string.steps), steps);
+                mEditor.commit();
+
+                String calories = calorieGoals.getText().toString();
+                mEditor.putString(getString(R.string.calories), calories);
+                mEditor.commit();
+            }
+        });
+
+    }
+
+    private void checkSharedPreferences(){
+        String stepsSaved = mPreferences.getString(getString(R.string.steps),"");
+        String caloriesSaved = mPreferences.getString(getString(R.string.calories),"");
     }
 }
