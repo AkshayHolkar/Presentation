@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fit.app.fitit">
 
-    <!--Permissions-->
+    <!-- Permissions -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.BODY_SENSORS" />
@@ -15,18 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/splashScreenTheme">
 
-            <!--android:theme="@style/AppTheme.NoActionBar">-->
-
+            <!-- android:theme="@style/AppTheme.NoActionBar"> -->
 
         </activity>
-
         <activity
             android:name=".GoogleSignInActivity"
             android:label="@string/app_name">
@@ -35,10 +31,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
-
         <activity android:name=".StepsActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -54,13 +47,14 @@
 
         <activity
             android:name=".MapActivity"
-            android:label="@string/title_activity_map"></activity>
-
+            android:label="@string/title_activity_map" />
         <activity
             android:name=".FatActivity"
-            android:label="@string/title_activity_fat"></activity>
+            android:label="@string/title_activity_fat" />
 
-        <receiver android:name=".CaloriesTab1$AlertReceiver"/>
+        <receiver android:name=".CaloriesTab1$AlertReceiver" />
+
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>
