@@ -1,5 +1,7 @@
 package com.fit.app.fitit;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +12,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.Calendar;
 
 public class SettingsActivity extends AppCompatActivity {
     private SharedPreferences mPreferences;
@@ -62,6 +66,14 @@ public class SettingsActivity extends AppCompatActivity {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //notifications
+                //Calendar calender = Calendar.getInstance();
+                //Intent intent = new Intent(getApplicationContext(), Notification_reciever.class);
+
+                //PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+                //AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                //alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calender.getTimeInMillis(),AlarmManager.INTERVAL_DAY, pendingIntent);
+
                 String steps = stepGoals.getText().toString();
                 mEditor.putString(getString(R.string.steps), steps);
                 mEditor.commit();
