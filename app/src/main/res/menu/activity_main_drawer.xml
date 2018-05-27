@@ -6,32 +6,28 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_dashboard"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_send"
             android:title="Dashboard" />
         <item
             android:id="@+id/nav_steps"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_send"
             android:title="Steps Tracking" />
         <item
-            android:id="@+id/nav_map"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Map" />
+            android:id="@+id/nav_route"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Route" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_calories"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Calories Tracking" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Extras">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_video"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Video" />
         </menu>
     </item>
 
