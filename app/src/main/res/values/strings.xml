@@ -100,4 +100,8 @@
     <string name="email_fmt">Email: %s</string>
 
 
+    <string name="steps">SharedPreferences.steps</string>
+    <string name="calories">SharedPreferences.calories</string>
+
+
 </resources>
