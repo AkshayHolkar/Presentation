@@ -27,6 +27,10 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.Date;
 
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  * Created by Kev on 14/5/18.
  */
@@ -35,6 +39,9 @@ public class StepsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SensorEventListener  {
 
     TextView tv_steps;
+    
+     DatabaseReference ref =  FirebaseDatabase.getInstance().getReference();
+    DatabaseReference stepsRef = ref.child("steps");
 
     SensorManager sensorManager;
     boolean running = false;
@@ -189,6 +196,7 @@ public class StepsActivity extends AppCompatActivity
         if(running){
             float x = (float) Math.round(event.values[0] * 100) / 100;
             tv_steps.setText(String.valueOf(x));
+             stepsRef.setValue(x);
         }
     }
     @Override
