@@ -1,35 +1,39 @@
 {
   "project_info": {
-    "project_number": "690437737808",
-    "firebase_url": "https://fitit-532bf.firebaseio.com",
-    "project_id": "fitit-532bf",
-    "storage_bucket": "fitit-532bf.appspot.com"
+    "project_number": "769852241154",
+    "firebase_url": "https://software-studio-1a.firebaseio.com",
+    "project_id": "software-studio-1a",
+    "storage_bucket": "software-studio-1a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:690437737808:android:0411d16c0d84cb33",
+        "mobilesdk_app_id": "1:769852241154:android:0411d16c0d84cb33",
         "android_client_info": {
           "package_name": "com.fit.app.fitit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "690437737808-q825q94dd2ng8kk76u2kmlkc9tjl9v49.apps.googleusercontent.com",
+          "client_id": "769852241154-j2mb4ornbpu60g9lfe36lidk6avg3o8u.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.fit.app.fitit",
-            "certificate_hash": "04144635d116c8c4b37f77b23cbc0d38fe5348bc"
+            "certificate_hash": "7ac151d6e4c83b1a945efa7d292734de3c2decd5"
           }
         },
         {
-          "client_id": "690437737808-2k5kvn36onjj65kan2lmbfugla7c2k08.apps.googleusercontent.com",
+          "client_id": "769852241154-2n1g0qit2955l10cps2tgi65bse99917.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "769852241154-2n1g0qit2955l10cps2tgi65bse99917.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDRfoCFdWwAFdW363IhsXkCPUe5Rqqwq-A"
+          "current_key": "AIzaSyBJHsZvfH-RTZIU8eqk6Sk6xdRY84xAK5U"
         }
       ],
       "services": {
@@ -40,7 +44,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "690437737808-2k5kvn36onjj65kan2lmbfugla7c2k08.apps.googleusercontent.com",
+              "client_id": "769852241154-2n1g0qit2955l10cps2tgi65bse99917.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
