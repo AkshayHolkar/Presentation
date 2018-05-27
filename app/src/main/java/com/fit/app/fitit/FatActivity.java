@@ -15,7 +15,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 /**
  * Created by Kev on 14/5/18.
@@ -110,16 +109,14 @@ public class FatActivity extends AppCompatActivity
             Intent startIntent = new Intent(getApplicationContext(), StepsActivity.class);
             startActivity(startIntent);
 
-        } else if (id == R.id.nav_map) {
+        } else if (id == R.id.nav_route) {
             Intent startIntent = new Intent(getApplicationContext(), MapActivity.class);
             startActivity(startIntent);
 
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_calories) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_video) {
 
         }
 

@@ -2,8 +2,6 @@ package com.fit.app.fitit;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -25,17 +23,18 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // don't move this code, make sure its before super.onCreate
-        setTheme(R.style.AppTheme_NoActionBar);
-
+        setTheme(R.style.AppTheme_NoActionBar);  // don't move this code, make sure its before super.onCreate
         super.onCreate(savedInstanceState);
-        FirebaseApp.initializeApp(this);
         setContentView(R.layout.activity_main);
+
+        FirebaseApp.initializeApp(this);
 
         //find and set toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
-          //set user name
+
+        //set user name
+//        TextView mStatusTextView = (TextView) findViewById(R.id.dashboard_username);
         TextView mStatusTextView;
         mStatusTextView = findViewById(R.id.status);
         // [START declare_auth]
@@ -43,17 +42,11 @@ public class MainActivity extends AppCompatActivity
         // [START initialize_auth]
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
-        String status="Your email address is ";
-        mStatusTextView.setText(status+getString(R.string.google_status_fmt, user.getEmail()));
-        //find and set fab button
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        String status = "Your email address is ";
+//        mStatusTextView.setText(status + getString(R.string.google_status_fmt, user.getEmail()));
+
+
+
         //find and set nav drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -63,6 +56,7 @@ public class MainActivity extends AppCompatActivity
         //find and set nav view
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
 
         //find and set buttons
         Button activity_steps_btn_launch = (Button) findViewById(R.id.activity_steps_btn_launch);
@@ -90,6 +84,17 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        //
+//        //find and set fab button
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+
     }
 
     @Override
@@ -110,13 +115,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        Intent startIntent = new Intent(getApplicationContext(), SettingsActivity.class);
-        startActivity(startIntent);
-        int id = item.getItemId();
+        public boolean onOptionsItemSelected(MenuItem item) {
+            // Handle action bar item clicks here. The action bar will
+            // automatically handle clicks on the Home/Up button, so long
+            // as you specify a parent activity in AndroidManifest.xml.
+            Intent startIntent = new Intent(getApplicationContext(), SettingsActivity.class);
+            startActivity(startIntent);
+            int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
@@ -140,17 +145,15 @@ public class MainActivity extends AppCompatActivity
             Intent startIntent = new Intent(getApplicationContext(), StepsActivity.class);
             startActivity(startIntent);
 
-        } else if (id == R.id.nav_map) {
+        } else if (id == R.id.nav_route) {
             Intent startIntent = new Intent(getApplicationContext(), MapActivity.class);
             startActivity(startIntent);
 
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_calories) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_video) {
 
-        } else if (id == R.id.nav_send) {
-//
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
