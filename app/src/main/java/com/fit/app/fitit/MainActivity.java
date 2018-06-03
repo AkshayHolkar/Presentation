@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity
 
 
         //find and set buttons
-        Button activity_steps_btn_launch = (Button) findViewById(R.id.activity_steps_btn_launch);
+        RelativeLayout activity_steps_btn_launch = (RelativeLayout) findViewById(R.id.activity_steps_btn_launch);
         activity_steps_btn_launch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(startIntent);
             }
         });
-        Button activity_fat_btn_launch = (Button) findViewById(R.id.activity_fat_btn_launch);
+        RelativeLayout activity_fat_btn_launch = (RelativeLayout) findViewById(R.id.activity_fat_btn_launch);
         activity_fat_btn_launch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,12 +77,21 @@ public class MainActivity extends AppCompatActivity
                 startActivity(startIntent);
             }
         });
-        Button activity_map_btn_launch = (Button) findViewById(R.id.activity_map_btn_launch);
+        RelativeLayout activity_map_btn_launch = (RelativeLayout) findViewById(R.id.activity_map_btn_launch);
         activity_map_btn_launch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent startIntent = new Intent(getApplicationContext(), MapActivity.class);
                 startActivity(startIntent);
+            }
+        });
+
+        RelativeLayout activity_progress_btn_launch = (RelativeLayout) findViewById(R.id.activity_progress_btn_launch);
+        activity_progress_btn_launch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Intent startIntent = new Intent(getApplicationContext(), ProgressActivity.class);
+                //startActivity(startIntent);
             }
         });
 

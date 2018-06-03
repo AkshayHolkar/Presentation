@@ -10,7 +10,8 @@
     <string name="title_activity_fat">Calories Counting</string>
     <string name="activity_steps_btn_launch">Steps</string>
     <string name="activity_fat_btn_launch">Calories Counting</string>
-    <string name="activity_map_btn_launch">map</string>
+    <string name="activity_map_btn_launch">Map</string>
+    <string name="activity_progress_btn_launch">Progress</string>
     <string name="nav_header_text">Header</string>
     <!--<string name="default_web_client_id">Client</string>-->
 

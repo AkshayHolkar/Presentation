@@ -23,31 +23,123 @@
         <!--app:layout_constraintHorizontal_bias="0.5"-->
         <!--app:layout_constraintStart_toStartOf="parent"-->
         <!--app:layout_constraintTop_toTopOf="parent" />-->
-        <Button
+
+        <ImageView
+            android:id="@+id/image_logo"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/fitit" />
+
+        <RelativeLayout
             android:id="@+id/activity_steps_btn_launch"
-            style="@android:style/Widget.Material.Light.Button"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="14dp"
-            android:backgroundTint="#ffffff"
-            android:fontFamily="sans-serif"
-            android:text="@string/activity_steps_btn_launch"
-            android:textSize="35sp" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_steps_background"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_below="@+id/image_logo">
+            <!--style="@android:style/Widget.Material.Light.Button"-->
+            <TextView
+                android:id="@+id/main_steps_tv"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:backgroundTint="#ffffff"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/activity_steps_btn_launch"
+                android:textSize="35sp" />
 
-        <Button
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/ic_steps" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
             android:id="@+id/activity_fat_btn_launch"
-            style="@android:style/Widget.Material.Light.Button"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="180dp"
-            android:backgroundTint="#ffffff"
-            android:text="@string/activity_fat_btn_launch"
-            android:textSize="25sp" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_calories_background"
+            android:layout_below="@+id/activity_steps_btn_launch"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp">
+
+            <TextView
+                android:id="@+id/main_calories_tv"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:text="@string/activity_fat_btn_launch"
+                android:textSize="25sp"
+                android:gravity="center" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/ic_calories" />
+
+        </RelativeLayout>
 
 
-        <Button
+        <RelativeLayout
+            android:id="@+id/activity_map_btn_launch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_below="@+id/activity_fat_btn_launch"
+            android:background="@drawable/button_map_background">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:textSize="25sp"
+                android:text="@string/activity_map_btn_launch"
+                android:gravity="center"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/ic_map"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/activity_progress_btn_launch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_below="@+id/activity_map_btn_launch"
+            android:background="@drawable/button_progress_background">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:textSize="25sp"
+                android:text="@string/activity_progress_btn_launch"
+                android:gravity="center"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/ic_progress"/>
+        </RelativeLayout>
+
+        <!--<Button
             android:id="@+id/activity_map_btn_launch"
             style="@android:style/Widget.Material.Light.Button"
             android:layout_width="125dp"
@@ -62,38 +154,38 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.45" />
+            app:layout_constraintVertical_bias="0.45" />-->
 
         <!--<Button-->
-            <!--android:id="@+id/activity_weight_btn_launch"-->
-            <!--style="@android:style/Widget.Material.Light.Button"-->
-            <!--android:layout_width="125dp"-->
-            <!--android:layout_height="125dp"-->
-            <!--android:layout_alignTop="@+id/activity_map_btn_launch"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:backgroundTint="#ffffff"-->
-            <!--android:text="Weight Watcher"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent"-->
-            <!--app:layout_constraintVertical_bias="0.45" />-->
+        <!--android:id="@+id/activity_weight_btn_launch"-->
+        <!--style="@android:style/Widget.Material.Light.Button"-->
+        <!--android:layout_width="125dp"-->
+        <!--android:layout_height="125dp"-->
+        <!--android:layout_alignTop="@+id/activity_map_btn_launch"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:backgroundTint="#ffffff"-->
+        <!--android:text="Weight Watcher"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0.45" />-->
 
         <!--<Button-->
-            <!--android:id="@+id/activity_tips_btn_launch"-->
-            <!--style="@android:style/Widget.Material.Light.Button"-->
-            <!--android:layout_width="125dp"-->
-            <!--android:layout_height="125dp"-->
-            <!--android:layout_alignParentEnd="true"-->
-            <!--android:layout_alignTop="@+id/activity_map_btn_launch"-->
-            <!--android:backgroundTint="#ffffff"-->
-            <!--android:text="Diet"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintHorizontal_bias="1.944"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent"-->
-            <!--app:layout_constraintVertical_bias="0.449" />-->
+        <!--android:id="@+id/activity_tips_btn_launch"-->
+        <!--style="@android:style/Widget.Material.Light.Button"-->
+        <!--android:layout_width="125dp"-->
+        <!--android:layout_height="125dp"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignTop="@+id/activity_map_btn_launch"-->
+        <!--android:backgroundTint="#ffffff"-->
+        <!--android:text="Diet"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="1.944"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0.449" />-->
         <!---->
         <!--<TextView-->
         <!--android:id="@+id/status"-->
@@ -108,9 +200,6 @@
         <!--app:layout_constraintVertical_bias="0.799"  />-->
 
     </RelativeLayout>
-
-
-
 
 
 </android.support.constraint.ConstraintLayout>
