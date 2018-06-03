@@ -197,8 +197,9 @@ public class StepsActivity extends AppCompatActivity
             float x = (float) Math.round(event.values[0] * 100) / 100;
             tv_steps.setText(String.valueOf(x));
             stepsRef.setValue(x);
-            String progress = String.valueOf(x);
-            progressBar.setProgress(Integer.parseInt(progress));
+            //String progress = String.valueOf(x);
+            //progressBar.setProgress(Integer.parseInt(progress));
+            progressBar.setProgress((int)x);
         }
     }
     @Override
