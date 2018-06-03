@@ -2,7 +2,9 @@ package com.fit.app.fitit;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,6 +17,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,13 +33,15 @@ public class StepsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SensorEventListener  {
 
     TextView tv_steps;
-    
-     DatabaseReference ref =  FirebaseDatabase.getInstance().getReference();
+    TextView tvGoalSteps;
+
+    DatabaseReference ref =  FirebaseDatabase.getInstance().getReference();
     DatabaseReference stepsRef = ref.child("steps");
 
     SensorManager sensorManager;
     boolean running = false;
     int count = 0;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +53,16 @@ public class StepsActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         tv_steps = (TextView) findViewById(R.id.tv_steps);
+        tvGoalSteps = (TextView) findViewById(R.id.goalNumber);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        updateData();
 
         Thread t=new Thread(){
             @Override
@@ -95,6 +104,7 @@ public class StepsActivity extends AppCompatActivity
         //find and set nav view
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
 
@@ -186,12 +196,24 @@ public class StepsActivity extends AppCompatActivity
         if(running){
             float x = (float) Math.round(event.values[0] * 100) / 100;
             tv_steps.setText(String.valueOf(x));
-             stepsRef.setValue(x);
+            stepsRef.setValue(x);
+            String progress = String.valueOf(x);
+            progressBar.setProgress(Integer.parseInt(progress));
         }
     }
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
 
+    }
+
+    public void updateData(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String goal = sharedPreferences.getString(getString(R.string.stepsGoal), "10000");
+
+        tvGoalSteps.setText(goal);
+        progressBar.setMax(Integer.parseInt(goal));
+
+        //progressBar.setProgress(5000);
     }
 
 }

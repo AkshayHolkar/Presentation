@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -20,6 +21,10 @@ public class SettingsActivity extends AppCompatActivity {
     private SharedPreferences.Editor mEditor;
     private EditText stepGoals, calorieGoals;
     private Button saveBtn;
+
+    private String stepsSaved;
+    private String caloriesSaved;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +64,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         //mPreferences = getSharedPreferences("myDataBase", Context.MODE_PRIVATE);
-        mEditor = mPreferences.edit();
 
         checkSharedPreferences();
 
@@ -74,20 +78,34 @@ public class SettingsActivity extends AppCompatActivity {
                 //AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
                 //alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calender.getTimeInMillis(),AlarmManager.INTERVAL_DAY, pendingIntent);
 
-                String steps = stepGoals.getText().toString();
-                mEditor.putString(getString(R.string.steps), steps);
-                mEditor.commit();
+                saveData();
 
-                String calories = calorieGoals.getText().toString();
-                mEditor.putString(getString(R.string.calories), calories);
-                mEditor.commit();
+                Toast.makeText(view.getContext(), "Saved", Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
     private void checkSharedPreferences(){
-        String stepsSaved = mPreferences.getString(getString(R.string.steps),"");
-        String caloriesSaved = mPreferences.getString(getString(R.string.calories),"");
+        stepsSaved = mPreferences.getString(getString(R.string.stepsGoal),"10000");
+        caloriesSaved = mPreferences.getString(getString(R.string.caloriesGoal),"2000");
+
+        stepGoals.setText(stepsSaved);
+        calorieGoals.setText(caloriesSaved);
+
+        saveData();
     }
+
+    private void saveData(){
+        mEditor = mPreferences.edit();
+
+        String steps = stepGoals.getText().toString();
+        mEditor.putString(getString(R.string.stepsGoal), steps);
+
+        String calories = calorieGoals.getText().toString();
+        mEditor.putString(getString(R.string.caloriesGoal), calories);
+
+        mEditor.apply();
+    };
+
 }

@@ -9,31 +9,102 @@
     tools:context="com.fit.app.fitit.StepsActivity"
     tools:showIn="@layout/app_bar_steps">
 
+    <ImageView
+        android:id="@+id/myImageView"
+        android:layout_width="359dp"
+        android:layout_height="48dp"
+        android:src="@drawable/fitit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
     <TextView
         android:id="@+id/stepsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Steps"
+        android:text="Today's Steps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.174" />
 
     <TextView
         android:id="@+id/tv_steps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:text="0"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stepsTextView" />
 
+    <FrameLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_steps"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ProgressBar
+            android:id="@+id/progressBarBackground"
+            style="?android:progressBarStyleHorizontal"
+            android:progress="100"
+            android:paddingTop="5dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:progressDrawable="@drawable/circle"
+            android:progressTint="@color/grey_300"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:progressBarStyleHorizontal"
+            android:progress="70"
+            android:paddingTop="5dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:progressDrawable="@drawable/circle"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/goalDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Goal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.711" />
+
+
+    <TextView
+        android:id="@+id/goalNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="0"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goalDisplay" />
 
 
 </android.support.constraint.ConstraintLayout>
