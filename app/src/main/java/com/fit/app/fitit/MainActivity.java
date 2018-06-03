@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -115,17 +116,22 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            // Handle action bar item clicks here. The action bar will
-            // automatically handle clicks on the Home/Up button, so long
-            // as you specify a parent activity in AndroidManifest.xml.
-            Intent startIntent = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivity(startIntent);
-            int id = item.getItemId();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId())
+        {
+            case R.id.action_settings: {
+                Intent startIntent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(startIntent);
+
+                return true;
+            }
+            case R.id.action_signout:
+                signout();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -160,5 +166,17 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void signout(){
+        FirebaseAuth fAuth;
+        fAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = fAuth.getCurrentUser();
+
+        fAuth.signOut();
+        String username = user.getEmail();
+
+        Toast.makeText(this, "Signing Out", Toast.LENGTH_SHORT).show();
+        finish();
     }
 }
